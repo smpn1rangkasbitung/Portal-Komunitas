@@ -1,0 +1,8 @@
+{
+  "name": "Remix Portal Komunitas \u0026 Undangan Eksklusif",
+  "description": "Aplikasi registrasi komunitas berbasis undangan satu-kali-pakai, penerbitan nomor referensi unik anggota, dashboard admin pemantauan, dan notifikasi WhatsApp Gateway otomatis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

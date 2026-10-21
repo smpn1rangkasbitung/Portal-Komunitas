@@ -1,0 +1,125 @@
+{
+  "members": [
+    {
+      "id": 1,
+      "reference_number": "REF-KOM-2026-94812",
+      "full_name": "Siti Rahmawati",
+      "phone_number": "085712345678",
+      "email": "siti.rahma@example.com",
+      "city": "Bandung",
+      "bio_interest": "Pemberdayaan sosial & literasi digital masyarakat",
+      "invitation_id": 2,
+      "status": "active",
+      "password_hash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+      "bank_name": "BCA (Bank Central Asia)",
+      "account_number": "8920194812",
+      "account_holder": "Siti Rahmawati",
+      "created_at": "2026-10-16T05:20:47.837Z"
+    }
+  ],
+  "invitations": [
+    {
+      "id": 1,
+      "token": "demo-undangan-spesial-01",
+      "recipient_name": "Budi Santoso",
+      "recipient_phone": "081234567890",
+      "status": "pending",
+      "created_by": "Admin Utama",
+      "expires_at": "2026-10-24T05:20:47.837Z",
+      "used_at": null,
+      "created_at": "2026-10-17T05:20:47.836Z"
+    },
+    {
+      "id": 2,
+      "token": "demo-undangan-terpakai-02",
+      "recipient_name": "Siti Rahmawati",
+      "recipient_phone": "085712345678",
+      "status": "used",
+      "created_by": "Admin Utama",
+      "expires_at": "2026-10-24T05:20:47.837Z",
+      "used_at": "2026-10-17T05:20:47.836Z",
+      "created_at": "2026-10-16T05:20:47.837Z",
+      "member_reference": "REF-KOM-2026-94812"
+    }
+  ],
+  "notification_logs": [
+    {
+      "id": 1,
+      "type": "invite_link",
+      "recipient_phone": "081234567890",
+      "message_body": "Halo Budi Santoso! Anda mendapatkan undangan eksklusif bergabung di Komunitas Sinergi Nusantara...",
+      "gateway_url": "https://wa.printpro.my.id/api/v1/messages/send",
+      "http_status": 200,
+      "status": "success",
+      "response_payload": "{\"status\":\"sent\",\"messageId\":\"msg_98472918\"}",
+      "created_at": "2026-10-17T05:20:47.836Z"
+    }
+  ],
+  "invoices": [
+    {
+      "id": 1,
+      "invoice_number": "INV-202610-001",
+      "nomor_referensi": "REF-KOM-2026-94812",
+      "reference_number": "REF-KOM-2026-94812",
+      "customer_name": "Percetakan Maju Berkah",
+      "customer_phone": "081298765432",
+      "description": "Pemesanan Cetak Banner & Brosur Komunitas",
+      "total_amount": 1500000,
+      "commission_rate_percent": 10,
+      "commission_amount": 150000,
+      "status": "lunas",
+      "paid_at": "2026-10-16T10:30:00.000Z",
+      "created_at": "2026-10-16T09:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "invoice_number": "INV-202610-002",
+      "nomor_referensi": "REF-KOM-2026-94812",
+      "reference_number": "REF-KOM-2026-94812",
+      "customer_name": "CV Grafika Mandiri",
+      "customer_phone": "081387654321",
+      "description": "Paket Percetakan Dokumen Digital",
+      "total_amount": 750000,
+      "commission_rate_percent": 10,
+      "commission_amount": 75000,
+      "status": "pending",
+      "paid_at": null,
+      "created_at": "2026-10-16T14:15:00.000Z"
+    }
+  ],
+  "disbursements": [
+    {
+      "id": 1,
+      "disbursement_code": "WD-202610-1011",
+      "member_id": 1,
+      "reference_number": "REF-KOM-2026-94812",
+      "member_name": "Siti Rahmawati",
+      "member_phone": "085712345678",
+      "amount": 50000,
+      "bank_name": "BCA (Bank Central Asia)",
+      "account_number": "8830192831",
+      "account_holder": "Siti Rahmawati",
+      "notes": "Penarikan komisi perdana",
+      "status": "approved",
+      "admin_notes": "Transfer telah berhasil via BCA Mobile. Terima kasih!",
+      "transfer_proof_ref": "TRX-BCA-202610-1011",
+      "processed_by": "Administrator",
+      "processed_at": "2026-10-16T16:00:00.000Z",
+      "created_at": "2026-10-16T15:30:00.000Z"
+    }
+  ],
+  "settings": {
+    "wa_gateway_url": "https://tiket.sayuti.com/api/gateway/send",
+    "wa_api_key": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4NTU5MzFmLTllMWQtNDRkZC05YWI3LTg4ZTA2NTI4YTkxNiIsImVtYWlsIjoiYWRtaW5Ac2F5dXRpLmNvbSIsInRlbmFudElkIjoiZjY0YjZjYTAtNzM1Yi00MjQ0LTllZTktMWVmOTI2N2Q0YTFhIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzkxODg3OTIwLCJleHAiOjE3OTI0OTI3MjB9.BMUGJlV8MiCl1e1L2ZT6lxWLG3H691x6OtrhRe3BZRU",
+    "wa_device_id": "",
+    "community_name": "Portal Sayuti.com",
+    "community_tagline": "Wadah Kolaborasi, Inspirasi, dan Pertumbuhan Bersama",
+    "default_invite_message": "Halo {name}! Anda mendapatkan undangan eksklusif untuk bergabung dengan {community}. Silakan lengkapi pendaftaran melalui tautan resmi 1-kali-pakai berikut: {link} . Terima kasih!",
+    "default_success_message": "Selamat bergabung di {community}, {name}! Pendaftaran Anda telah berhasil diverifikasi. Nomor Referensi Unik Anggota Anda adalah: {reference_number}. Simpan nomor ini sebagai bukti identitas keanggotaan resmi Anda.",
+    "commission_rate_percent": "10",
+    "commission_calculation_mode": "percentage",
+    "commission_fixed_amount": "50000",
+    "commission_description": "Komisi referral diberikan untuk setiap transaksi yang berhasil dan telah berstatus lunas.",
+    "min_disbursement_amount": "10000"
+  }
+}

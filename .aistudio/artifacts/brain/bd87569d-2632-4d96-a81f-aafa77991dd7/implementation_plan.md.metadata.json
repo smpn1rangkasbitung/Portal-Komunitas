@@ -1,0 +1,6 @@
+{
+  "summary": "Rencana implementasi sistem pendaftaran komunitas berbasis undangan satu-kali-pakai (single-use invite link) dengan nomor referensi unik, dashboard admin pemantauan & validasi, integrasi WhatsApp Gateway (WaGate API wa.printpro.my.id), serta skema database MySQL lengkap.",
+  "updatedAt": "2026-10-15T12:09:47.813490826Z",
+  "requestFeedback": true,
+  "userFacing": true
+}
