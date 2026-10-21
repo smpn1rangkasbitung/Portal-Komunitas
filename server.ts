@@ -12,8 +12,8 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// AI Studio requires dev server to always run on port 3000
-const PORT = 3000;
+// AI Studio requires dev server on port 3000. In VPS/PM2 production, allows custom PORT or APP_PORT.
+const PORT = parseInt(process.env.APP_PORT || (process.env.APPLET_ID ? '3000' : (process.env.PORT || '3000')), 10);
 const isProduction = process.env.NODE_ENV === 'production';
 
 async function startServer() {
