@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { createServer as createViteServer } from 'vite';
 import { apiRouter } from './server/routes.ts';
@@ -11,10 +12,15 @@ dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const distPath = path.resolve(__dirname, 'dist');
+const hasDist = fs.existsSync(path.join(distPath, 'index.html'));
 
-// AI Studio requires dev server on port 3000. In VPS/PM2 production, allows custom PORT or APP_PORT.
-const PORT = parseInt(process.env.APP_PORT || (process.env.APPLET_ID ? '3000' : (process.env.PORT || '3000')), 10);
-const isProduction = process.env.NODE_ENV === 'production';
+// In AI Studio dev environment, always use port 3000 and Vite dev middleware.
+// In external VPS/PM2/aaPanel production, if dist exists or NODE_ENV=production, serve compiled dist.
+const isProduction = !process.env.APPLET_ID && (process.env.NODE_ENV === 'production' || hasDist);
+const PORT = (!process.env.APPLET_ID && isProduction)
+  ? parseInt(process.env.PORT || process.env.APP_PORT || '3000', 10)
+  : 3000;
 
 async function startServer() {
   const app = express();
@@ -44,7 +50,6 @@ async function startServer() {
 
     app.use(vite.middlewares);
   } else {
-    const distPath = path.resolve(__dirname, 'dist');
     app.use(express.static(distPath));
     app.get('*', (req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
@@ -52,7 +57,7 @@ async function startServer() {
   }
 
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`[Server] Portal Komunitas & WhatsApp Gateway running at http://localhost:${PORT}`);
+    console.log(`[Server] Portal Komunitas running at http://localhost:${PORT} in ${isProduction ? 'PRODUCTION (serving dist/)' : 'DEVELOPMENT (Vite dev middleware)'}`);
   });
 }
 
