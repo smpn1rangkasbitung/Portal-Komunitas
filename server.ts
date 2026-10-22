@@ -52,7 +52,26 @@ async function startServer() {
   } else {
     app.use(express.static(distPath));
     app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
+      const indexPath = path.join(distPath, 'index.html');
+      if (fs.existsSync(indexPath)) {
+        res.sendFile(indexPath);
+      } else {
+        res.status(503).send(`
+          <!DOCTYPE html>
+          <html>
+            <head><title>Build Required</title></head>
+            <body style="font-family: system-ui, sans-serif; padding: 40px; text-align: center; background: #f8fafc; color: #0f172a;">
+              <div style="max-width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                <h2 style="margin-top: 0; color: #0f172a;">Frontend Belum Di-Build</h2>
+                <p style="color: #64748b; font-size: 14px;">Folder <code>dist/index.html</code> belum ditemukan di server.</p>
+                <p style="color: #64748b; font-size: 14px;">Silakan jalankan perintah berikut di terminal server:</p>
+                <pre style="background: #0f172a; color: #38bdf8; padding: 12px; border-radius: 8px; font-size: 13px; text-align: left;">npm run build</pre>
+                <p style="color: #64748b; font-size: 12px; margin-bottom: 0;">Setelah proses build selesai, refresh halaman ini.</p>
+              </div>
+            </body>
+          </html>
+        `);
+      }
     });
   }
 
